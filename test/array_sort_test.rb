@@ -7,10 +7,53 @@ class ArraySortTest < MiniTest::Unit::TestCase
 
   def test_merge_bs()
     puts 'in test_merge_bs()'
+    first_sorted_collection = nil
+    second_sorted_collection = nil
+    expected_result = []
+    actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    pp "merged_array #{actual_result}"
+    assert_equal(expected_result, actual_result, 'merge should handle both collections nil')
+
+    first_sorted_collection = nil
+    second_sorted_collection = []
+    expected_result = []
+    actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    pp "merged_array #{actual_result}"
+    assert_equal(expected_result, actual_result, 'merge should handle first collection nil second empty')
+
+    first_sorted_collection = []
+    second_sorted_collection = nil
+    expected_result = []
+    actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    pp "merged_array #{actual_result}"
+    assert_equal(expected_result, actual_result, 'merge should handle first empty second nil')
+
+    first_sorted_collection = []
+    second_sorted_collection = []
+    expected_result = []
+    actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    pp "merged_array #{actual_result}"
+    assert_equal(expected_result, actual_result, 'merge should handle both collections empty')
+
+    first_sorted_collection = []
+    second_sorted_collection = [5, -4, 3]
+    expected_result = [5, -4, 3]
+    actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    pp "merged_array #{actual_result}"
+    assert_equal(expected_result, actual_result, 'merge should handle first collection empty')
+
+    first_sorted_collection = [2, 7, 19, 40, 63]
+    second_sorted_collection = []
+    expected_result = [2, 7, 19, 40, 63]
+    actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    pp "merged_array #{actual_result}"
+    assert_equal(expected_result, actual_result, 'merge should handle second collection empty')
+
     first_sorted_collection = [2, 7, 19, 40, 63]
     second_sorted_collection = [4, 5, 13, 38, 57, 90]
     expected_result = [2, 4, 5, 7, 13, 19, 38, 40, 57, 63, 90]
     actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    pp "merged_array #{actual_result}"
     assert_equal(expected_result, actual_result)
   end
 
