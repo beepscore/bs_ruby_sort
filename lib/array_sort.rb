@@ -4,9 +4,9 @@ require 'pp'
 
 class Array
 
-  # each arguments is an array sorted in ascending order
+  # each argument is an array sorted in ascending order
   # returns an array sorted in ascending order
-  # if a and b are nil returns empty array, else if one is nil it returns the other
+  # if a and b are nil returns empty array, else if one argument is nil it returns the other
   def self.merge_bs(a, b)
 
     if (!a && !b)
