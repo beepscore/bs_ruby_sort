@@ -14,6 +14,20 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result)
   end
 
+  # test Array standard push method
+  def test_push()
+    puts 'in test_push()'
+    an_array = []
+    expected_result = [2]
+    actual_result = an_array.push(2)
+    assert_equal(expected_result, actual_result, 'pushed array incorrect')
+
+    an_array = [1, 2, 5]
+    expected_result = [1, 2, 5, 4]
+    actual_result = an_array.push(4)
+    assert_equal(expected_result, actual_result, 'pushed array incorrect')
+  end
+
   # test Array standard sort method
   def test_sort()
     puts 'in test_sort()'
