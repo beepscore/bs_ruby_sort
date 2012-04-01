@@ -107,4 +107,14 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result)    
   end
 
+    def test_split_left_right_bs_length_one
+    puts 'in test_split_left_right_bs_length_one()'
+    unsorted_numbers = [-3]
+    expected_result = {:left_side => [], :right_side => [-3]}
+    actual_result = unsorted_numbers.split_left_right_bs()
+    puts actual_result
+    assert_equal(expected_result, actual_result)    
+  end
+
+
 end
