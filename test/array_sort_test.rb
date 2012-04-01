@@ -5,6 +5,15 @@ require_relative '../lib/array_sort'
 
 class ArraySortTest < MiniTest::Unit::TestCase
 
+  def test_merge_bs()
+    puts 'in test_merge_bs()'
+    first_sorted_collection = [2, 7, 19, 40, 63]
+    second_sorted_collection = [4, 5, 13, 38, 57, 90]
+    expected_result = [2, 4, 5, 7, 13, 19, 38, 40, 57, 63, 90]
+    actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    assert_equal(expected_result, actual_result)
+  end
+
   # test Array standard sort method
   def test_sort()
     puts 'in test_sort()'
