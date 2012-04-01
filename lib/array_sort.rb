@@ -16,7 +16,8 @@ class Array
     elsif (!b)
       merged_array = a
     else
-
+      merged_array = []
+      
       if (a.length > b.length)
         #swap so that b is the longer array
         a, b = b, a
@@ -25,7 +26,6 @@ class Array
       # prepend the smaller of the next two elements to the beginning of the merged array
       a_index = 0
       b_index = 0
-      merged_array = []
       while (b_index < b.length) do
         if ((a_index >= a.length) ||
             (b[b_index] < a[a_index]))
