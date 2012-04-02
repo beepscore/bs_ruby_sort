@@ -89,6 +89,15 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
+  def test_sort_bs_merge_empty()
+    puts 'in test_sort_bs_merge_empty()'
+    unsorted_numbers = []
+    # use Array standard sort method as a benchmark
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_bs_merge
+    assert_equal(expected_result, actual_result, 'should return empty array')
+  end
+
   def test_split_left_right_bs
     puts 'in test_split_left_right_bs()'
     unsorted_numbers = [6, 5, 4]
