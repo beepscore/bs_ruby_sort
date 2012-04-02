@@ -26,16 +26,26 @@ class Array
       # prepend the smaller of the next two elements to the beginning of the merged array
       a_index = 0
       b_index = 0
-      while (b_index < b.length) do
-        if (a_index >= a.length)
+      while ((a_index < a.length) || (b_index < b.length)) do
+        # we still have elements to merge
+
+        if ((a_index < a.length) && (b_index < b.length)) 
+          # we still have elements in each array to merge
+          if (b[b_index] < a[a_index])
+            # b's current element is smaller than a's
+            element_to_merge = b[b_index]
+            b_index += 1
+          else
+            # a's current element is smaller than or equal to b's
+            element_to_merge = a[a_index]
+            a_index += 1
+          end
+        elsif (a_index >= a.length) 
           # we are past the end of a
           element_to_merge = b[b_index]
           b_index += 1
-        elsif (b[b_index] < a[a_index])
-          # b's current element is smaller than a's
-          element_to_merge = b[b_index]
-          b_index += 1
         else 
+          # we are past the end of b
           element_to_merge = a[a_index]
           a_index += 1
         end
@@ -48,6 +58,7 @@ class Array
     merged_array
   end
 
+  
   # Extend class Array by adding another sort method  
   # Could use standard Array.sort() instead,
   # but do this as a learning exercise.
@@ -62,34 +73,25 @@ class Array
       pp "self #{self} left_side #{left_side} right_side #{right_side}"
 
       #Conquer: Sort the two subsequences recursively using Merge Sort.
-      if left_side != [] || right_side != []
+
+      if (1 >= left_side.length)
+        sorted_left = left_side
+      else 
         sorted_left = left_side.sort_bs_merge
-        pp "sorted_left #{sorted_left}"
+      end 
+
+      if (1 >= right_side.length)
+        sorted_right = right_side
+      else 
         sorted_right = right_side.sort_bs_merge
-        pp "sorted_right #{sorted_right}"
-        #Combine: Merge the two sorted subsequences to produce the sorted answer.
-        sorted = Array.merge_bs(sorted_left, sorted_right)
-        pp "sorted #{sorted}"
-        #http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-two/
-      end
+      end 
+
+      #Combine: Merge the two sorted subsequences to produce the sorted answer.
+      sorted = Array.merge_bs(sorted_left, sorted_right)
+      pp "sorted #{sorted} sorted_left #{sorted_left} sorted_right #{sorted_right}"
+      #http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-two/
     end
     sorted
-
-    # take any two elements from unsorted array e.g. first two
-    # compare and merge them to get one sorted array of length 2
-    # continue until have n/2 sorted pairs
-
-    # take any two sorted pairs
-    # merge them to get one sorted array of length 4
-    # merge operates on sorted arrays, so it knows the first elements are always lowest
-    # continue until have n/4 sorted arrays
-
-    # take any two sorted arrays of length 4
-    # merge them to get one sorted array of length 8
-    # continue until have n/8 sorted arrays
-    #
-    # continue until have 1 sorted array
-
   end
 
   # split_left_right_bs returns a hash with a left_side array and a right_side array.
