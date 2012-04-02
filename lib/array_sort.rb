@@ -85,7 +85,6 @@ class Array
 
       #Combine: Merge the two sorted subsequences to produce the sorted answer.
       sorted = Array.merge_bs(sorted_left, sorted_right)
-      #http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-two/
     end
     sorted
   end
