@@ -95,8 +95,9 @@ class Array
 
   # split_left_right_bs returns a hash with a left_side array and a right_side array.
   #if array has odd number of elements, :left_side is shorter than :right_side
+  #if array is empty, returns hash with :left_side empty array and :right_side empty array.
   def split_left_right_bs()
-    if 0 == self.length
+    if [] == self
       left_side = []
       right_side = []
     else
