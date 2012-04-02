@@ -90,7 +90,6 @@ class Array
     #
     # continue until have 1 sorted array
 
-    #merge_bs(self.split_left_right_bs)
   end
 
   # split_left_right_bs returns a hash with a left_side array and a right_side array.
