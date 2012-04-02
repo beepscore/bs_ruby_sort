@@ -39,7 +39,7 @@ class Array
           element_to_merge = a[a_index]
           a_index += 1
         end
-
+        puts "element_to_merge #{element_to_merge}"
         # prepend element_to_merge to beginning of merged_array
         # push is adding to beginning not end???
         merged_array = merged_array.push(element_to_merge)
