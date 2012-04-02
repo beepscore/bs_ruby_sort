@@ -57,7 +57,7 @@ class Array
     merged_array
   end
 
-  
+
   # Extend class Array by adding another sort method  
   # Could use standard Array.sort() instead,
   # but do this as a learning exercise.
@@ -66,9 +66,8 @@ class Array
 
     if (self.length > 1)
       # Divide: Divide the n-element sequence to be sorted into two subsequences of n/2 elements each.
-      split_arrays = self.split_left_right_bs
-      left_side = split_arrays[:left_side]
-      right_side = split_arrays[:right_side]
+      left_side = self.split_left_right_bs[:left_side]
+      right_side = self.split_left_right_bs[:right_side]
 
       #Conquer: Sort the two subsequences recursively using Merge Sort.
 
