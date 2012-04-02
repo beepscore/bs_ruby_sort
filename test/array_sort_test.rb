@@ -36,8 +36,8 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result, 'merge should handle both collections empty')
 
     first_sorted_collection = []
-    second_sorted_collection = [5, -4, 3]
-    expected_result = [5, -4, 3]
+    second_sorted_collection = [-5, 2, 7]
+    expected_result = [-5, 2, 7]
     actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
     pp "merged_array #{actual_result}"
     assert_equal(expected_result, actual_result, 'merge should handle first collection empty')
