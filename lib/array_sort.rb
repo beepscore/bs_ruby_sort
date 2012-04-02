@@ -27,9 +27,12 @@ class Array
       a_index = 0
       b_index = 0
       while (b_index < b.length) do
-        if ((a_index >= a.length) ||
-            (b[b_index] < a[a_index]))
-          # we are past the end of a, or b's current element is smaller than a's
+        if (a_index >= a.length)
+          # we are past the end of a
+          element_to_merge = b[b_index]
+          b_index += 1
+        elsif (b[b_index] < a[a_index])
+          # b's current element is smaller than a's
           element_to_merge = b[b_index]
           b_index += 1
         else 
