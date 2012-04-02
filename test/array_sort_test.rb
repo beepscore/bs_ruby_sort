@@ -49,6 +49,13 @@ class ArraySortTest < MiniTest::Unit::TestCase
     pp "merged_array #{actual_result}"
     assert_equal(expected_result, actual_result, 'merge should handle second collection empty')
 
+    first_sorted_collection = [9]
+    second_sorted_collection = [3]
+    expected_result = [3, 9]
+    actual_result = Array.merge_bs(first_sorted_collection, second_sorted_collection)
+    pp "merged_array #{actual_result}"
+    assert_equal(expected_result, actual_result)
+
     first_sorted_collection = [2, 7, 19, 40, 63]
     second_sorted_collection = [4, 5, 13, 38, 57, 90]
     expected_result = [2, 4, 5, 7, 13, 19, 38, 40, 57, 63, 90]
@@ -92,10 +99,30 @@ class ArraySortTest < MiniTest::Unit::TestCase
   def test_sort_bs_merge_empty()
     puts 'in test_sort_bs_merge_empty()'
     unsorted_numbers = []
-    # use Array standard sort method as a benchmark
     expected_result = unsorted_numbers.sort
     actual_result = unsorted_numbers.sort_bs_merge
     assert_equal(expected_result, actual_result, 'should return empty array')
+  end
+
+  def test_sort_bs_merge_length_one()
+    puts 'in test_sort_bs_merge_length_one()'
+    unsorted_numbers = [-6]
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_bs_merge
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
+  end
+
+  def test_sort_bs_merge_length_two()
+    puts 'in test_sort_bs_merge_length_two()'
+    unsorted_numbers = [1, 3]
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_bs_merge
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
+
+    unsorted_numbers = [9, 3]
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_bs_merge
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
   def test_split_left_right_bs
