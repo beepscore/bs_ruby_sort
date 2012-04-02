@@ -49,7 +49,6 @@ class Array
           element_to_merge = a[a_index]
           a_index += 1
         end
-        puts "element_to_merge #{element_to_merge}"
         # prepend element_to_merge to beginning of merged_array
         # push is adding to beginning not end???
         merged_array = merged_array.push(element_to_merge)
@@ -70,7 +69,6 @@ class Array
       split_arrays = self.split_left_right_bs
       left_side = split_arrays[:left_side]
       right_side = split_arrays[:right_side]
-      pp "self #{self} left_side #{left_side} right_side #{right_side}"
 
       #Conquer: Sort the two subsequences recursively using Merge Sort.
 
@@ -88,7 +86,6 @@ class Array
 
       #Combine: Merge the two sorted subsequences to produce the sorted answer.
       sorted = Array.merge_bs(sorted_left, sorted_right)
-      pp "sorted #{sorted} sorted_left #{sorted_left} sorted_right #{sorted_right}"
       #http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-two/
     end
     sorted
