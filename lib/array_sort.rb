@@ -53,25 +53,28 @@ class Array
   # but do this as a learning exercise.
   def sort_bs_merge()
     sorted = self
-    # Divide: Divide the n-element sequence to be sorted into two subsequences of n/2 elements each.
-    split_arrays = self.split_left_right_bs
-    left_side = split_arrays[:left_side]
-    right_side = split_arrays[:right_side]
-    pp "self #{self} left_side #{left_side} right_side #{right_side}"
 
-    #Conquer: Sort the two subsequences recursively using Merge Sort.
-    if left_side != [] || right_side != []
-      sorted_left = left_side.sort_bs_merge
-      pp "sorted_left #{sorted_left}"
-      sorted_right = right_side.sort_bs_merge
-      pp "sorted_right #{sorted_right}"
-      #Combine: Merge the two sorted subsequences to produce the sorted answer.
-      sorted = Array.merge_bs(sorted_left, sorted_right)
-      pp "sorted #{sorted}"
-      #http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-two/
+    if (self.length > 1)
+      # Divide: Divide the n-element sequence to be sorted into two subsequences of n/2 elements each.
+      split_arrays = self.split_left_right_bs
+      left_side = split_arrays[:left_side]
+      right_side = split_arrays[:right_side]
+      pp "self #{self} left_side #{left_side} right_side #{right_side}"
+
+      #Conquer: Sort the two subsequences recursively using Merge Sort.
+      if left_side != [] || right_side != []
+        sorted_left = left_side.sort_bs_merge
+        pp "sorted_left #{sorted_left}"
+        sorted_right = right_side.sort_bs_merge
+        pp "sorted_right #{sorted_right}"
+        #Combine: Merge the two sorted subsequences to produce the sorted answer.
+        sorted = Array.merge_bs(sorted_left, sorted_right)
+        pp "sorted #{sorted}"
+        #http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-two/
+      end
     end
     sorted
-    #
+
     # take any two elements from unsorted array e.g. first two
     # compare and merge them to get one sorted array of length 2
     # continue until have n/2 sorted pairs
