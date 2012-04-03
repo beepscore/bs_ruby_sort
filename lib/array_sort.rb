@@ -61,7 +61,7 @@ class Array
   # Extend class Array by adding another sort method  
   # Could use standard Array.sort() instead,
   # but do this as a learning exercise.
-  def sort_bs_merge()
+  def sort_recursive()
     sorted = self
 
     if (self.length > 1)
@@ -74,13 +74,13 @@ class Array
       if (1 >= left_side.length)
         sorted_left = left_side
       else 
-        sorted_left = left_side.sort_bs_merge
+        sorted_left = left_side.sort_recursive
       end 
 
       if (1 >= right_side.length)
         sorted_right = right_side
       else 
-        sorted_right = right_side.sort_bs_merge
+        sorted_right = right_side.sort_recursive
       end 
 
       #Combine: Merge the two sorted subsequences to produce the sorted answer.

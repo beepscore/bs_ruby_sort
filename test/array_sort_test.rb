@@ -79,41 +79,41 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_sort_bs_merge()
-    puts 'in test_sort_bs_merge()'
+  def test_sort_recursive()
+    puts 'in test_sort_recursive()'
     unsorted_numbers = [23, 4, 3, 0, 19, 7]
     # use Array standard sort method as a benchmark
     expected_result = unsorted_numbers.sort
-    actual_result = unsorted_numbers.sort_bs_merge
+    actual_result = unsorted_numbers.sort_recursive
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_sort_bs_merge_empty()
-    puts 'in test_sort_bs_merge_empty()'
+  def test_sort_recursive_empty()
+    puts 'in test_sort_recursive_empty()'
     unsorted_numbers = []
     expected_result = unsorted_numbers.sort
-    actual_result = unsorted_numbers.sort_bs_merge
+    actual_result = unsorted_numbers.sort_recursive
     assert_equal(expected_result, actual_result, 'should return empty array')
   end
 
-  def test_sort_bs_merge_length_one()
-    puts 'in test_sort_bs_merge_length_one()'
+  def test_sort_recursive_length_one()
+    puts 'in test_sort_recursive_length_one()'
     unsorted_numbers = [-6]
     expected_result = unsorted_numbers.sort
-    actual_result = unsorted_numbers.sort_bs_merge
+    actual_result = unsorted_numbers.sort_recursive
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_sort_bs_merge_length_two()
-    puts 'in test_sort_bs_merge_length_two()'
+  def test_sort_recursive_length_two()
+    puts 'in test_sort_recursive_length_two()'
     unsorted_numbers = [1, 3]
     expected_result = unsorted_numbers.sort
-    actual_result = unsorted_numbers.sort_bs_merge
+    actual_result = unsorted_numbers.sort_recursive
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
 
     unsorted_numbers = [9, 3]
     expected_result = unsorted_numbers.sort
-    actual_result = unsorted_numbers.sort_bs_merge
+    actual_result = unsorted_numbers.sort_recursive
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
