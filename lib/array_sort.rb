@@ -13,6 +13,14 @@ class Array
     array_of_arrays
   end
 
+  def log_two_length()
+    log_length = 0
+    if  self.length > 0
+      #log2 returns float
+      log_length = Math.log2(self.length).to_i
+    end
+    log_length
+  end
 
   # each argument is an array sorted in ascending order
   # returns an array sorted in ascending order
