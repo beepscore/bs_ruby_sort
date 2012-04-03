@@ -108,6 +108,17 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
+
+  def test_sort_merge_bs()
+    puts 'in test_sort_merge_bs()'
+    unsorted_numbers = [23, 4, 3, 0, 19, 7]
+    # use Array standard sort method as a benchmark
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_merge_bs
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
+  end
+
+
   def test_sort_recursive()
     puts 'in test_sort_recursive()'
     unsorted_numbers = [23, 4, 3, 0, 19, 7]
