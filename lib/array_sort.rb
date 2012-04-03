@@ -33,6 +33,7 @@ class Array
         a, b = b, a
       end
 
+      # merge_bs operates on sorted arrays. Their first elements are always lowest.
       # prepend the smaller of the next two elements to the beginning of the merged array
       a_index = 0
       b_index = 0
@@ -68,9 +69,50 @@ class Array
   end
 
 
-  # Extend class Array by adding another sort method  
+  # Extend class Array by adding some sort methods
   # Could use standard Array.sort() instead,
   # but do this as a learning exercise.
+  
+  # sort_merge_bs is non-recursive
+  # TODO: generalize this method to iterate until done
+  def sort_merge_bs()
+
+    array_of_unsorted_arrays = self.array_of_arrays_of_length(1)
+
+    array_of_arrays_of_length_two = []
+    # take arrays of length 1 two at a time from array of unsorted arrays
+    # compare and merge them to get an array of sorted arrays of length 2
+    array_of_unsorted_arrays.each_slice(2) do |subarray| 
+      # if subarray has length 1, subarray[1] returns nil
+      array_of_arrays_of_length_two.push(Array.merge_bs(subarray[0], subarray[1]))
+    end
+    # now have n/2 sorted pairs
+    pp array_of_arrays_of_length_two
+
+    array_of_arrays_of_length_four = []
+    # take arrays of length 2 two at a time from array of unsorted arrays
+    # compare and merge them to get an array of sorted arrays of length 4
+    array_of_arrays_of_length_two.each_slice(2) do |subarray| 
+      array_of_arrays_of_length_four.push(Array.merge_bs(subarray[0], subarray[1]))
+    end
+    # now have n/4 sorted arrays
+    pp array_of_arrays_of_length_four
+    # 
+    array_of_arrays_of_length_eight = []
+    # take arrays of length 4 two at a time from array of unsorted arrays
+    # compare and merge them to get an array of sorted arrays of length 8
+    array_of_arrays_of_length_four.each_slice(2) do |subarray| 
+      array_of_arrays_of_length_eight.push(Array.merge_bs(subarray[0], subarray[1]))
+    end
+    # now have n/8 sorted arrays
+    pp array_of_arrays_of_length_eight
+
+    # continue until have 1 sorted array
+    
+    array_of_arrays_of_length_eight.first
+  end
+
+
   def sort_recursive()
     sorted = self
 
