@@ -36,6 +36,26 @@ class ArraySortTest < MiniTest::Unit::TestCase
 
   def test_log_two_length()
     puts 'in test_log_two_length()'
+    an_array = []
+    actual_result = an_array.log_two_length
+    expected_result = 0
+    assert_equal(expected_result, actual_result, "log_two_length should be #{expected_result}")
+
+    an_array = [5]
+    actual_result = an_array.log_two_length
+    expected_result = 0
+    assert_equal(expected_result, actual_result, "log_two_length should be #{expected_result}")
+
+    an_array = ['cat', 'dog']
+    actual_result = an_array.log_two_length
+    expected_result = 1
+    assert_equal(expected_result, actual_result, "log_two_length should be #{expected_result}")
+
+    an_array = [1, 2, 3, 4, 5, 6, 7, 8]
+    actual_result = an_array.log_two_length
+    expected_result = 3
+    assert_equal(expected_result, actual_result, "log_two_length should be #{expected_result}")
+
     an_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
     actual_result = an_array.log_two_length
     expected_result = 3
