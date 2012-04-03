@@ -11,7 +11,7 @@ require_relative 'test/array_sort_test'
 # To run default task, in Terminal enter 'rake default' or simply 'rake'
 # here task :default is dependent on task :test
 # task default will run unit tests first
-task :default => [:test] do
+task :default do
 end
 
 # makes a task 'test' to run unit tests
