@@ -85,6 +85,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result)
   end
 
+
   # test Array standard push method
   def test_push()
     puts 'in test_push()'
@@ -98,6 +99,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     actual_result = an_array.push(4)
     assert_equal(expected_result, actual_result, 'pushed array incorrect')
   end
+
 
   # test Array standard sort method
   def test_sort()
@@ -128,6 +130,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
+
   def test_sort_recursive_empty()
     puts 'in test_sort_recursive_empty()'
     unsorted_numbers = []
@@ -136,6 +139,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result, 'should return empty array')
   end
 
+  
   def test_sort_recursive_length_one()
     puts 'in test_sort_recursive_length_one()'
     unsorted_numbers = [-6]
@@ -143,6 +147,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     actual_result = unsorted_numbers.sort_recursive
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
+
 
   def test_sort_recursive_length_two()
     puts 'in test_sort_recursive_length_two()'
@@ -157,6 +162,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
+
   def test_split_left_right_bs
     puts 'in test_split_left_right_bs()'
     unsorted_numbers = [6, 5, 4]
@@ -165,6 +171,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result)    
   end
 
+
   def test_split_left_right_bs_empty
     puts 'in test_split_left_right_bs_empty()'
     unsorted_numbers = []
@@ -172,6 +179,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     actual_result = unsorted_numbers.split_left_right_bs()
     assert_equal(expected_result, actual_result)    
   end
+  
 
   def test_split_left_right_bs_length_one
     puts 'in test_split_left_right_bs_length_one()'
@@ -180,6 +188,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     actual_result = unsorted_numbers.split_left_right_bs()
     assert_equal(expected_result, actual_result)    
   end
+
 
   def test_split_left_right_bs_length_two
     puts 'in test_split_left_right_bs_length_two()'
