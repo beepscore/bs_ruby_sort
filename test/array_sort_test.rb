@@ -5,6 +5,16 @@ require_relative '../lib/array_sort'
 
 class ArraySortTest < MiniTest::Unit::TestCase
 
+  def test_array_of_arrays_of_length()
+    puts 'in test_array_of_arrays_of_length()'
+    an_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    expected_result = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11]]
+    actual_result = an_array.array_of_arrays_of_length(2)
+    pp actual_result
+    assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 2')
+  end
+
+
   def test_merge_bs()
     puts 'in test_merge_bs()'
     first_sorted_collection = nil
