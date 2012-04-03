@@ -4,6 +4,16 @@ require 'pp'
 
 class Array
 
+  def array_of_arrays_of_length(subarray_length)
+    # http://stackoverflow.com/questions/4689186/how-do-you-select-every-nth-item-in-an-array
+    array_of_arrays = []
+    self.each_slice(subarray_length) do |subarray| 
+      array_of_arrays.push(subarray)
+    end
+    array_of_arrays
+  end
+
+
   # each argument is an array sorted in ascending order
   # returns an array sorted in ascending order
   # if a and b are nil returns empty array, else if one argument is nil it returns the other
