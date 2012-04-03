@@ -7,11 +7,30 @@ class ArraySortTest < MiniTest::Unit::TestCase
 
   def test_array_of_arrays_of_length()
     puts 'in test_array_of_arrays_of_length()'
-    an_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    expected_result = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11]]
+    an_array = []
     actual_result = an_array.array_of_arrays_of_length(2)
-    pp actual_result
+    expected_result = []
     assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 2')
+
+    an_array = [7]
+    actual_result = an_array.array_of_arrays_of_length(2)
+    expected_result = [[7]]
+    assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 2')
+
+    an_array = [7, 3]
+    actual_result = an_array.array_of_arrays_of_length(2)
+    expected_result = [[7, 3]]
+    assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 2')
+
+    an_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    actual_result = an_array.array_of_arrays_of_length(2)
+    expected_result = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11]]
+    assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 2')
+
+    an_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    actual_result = an_array.array_of_arrays_of_length(4)
+    expected_result = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11]]
+    assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 4')
   end
 
 
