@@ -22,6 +22,11 @@ class ArraySortTest < MiniTest::Unit::TestCase
     expected_result = [[7, 3]]
     assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 2')
 
+    an_array = [7, 3, 5]
+    actual_result = an_array.array_of_arrays_of_length(2)
+    expected_result = [[7, 3], [5]]
+    assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 2')
+
     an_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
     actual_result = an_array.array_of_arrays_of_length(2)
     expected_result = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11]]
@@ -160,6 +165,45 @@ class ArraySortTest < MiniTest::Unit::TestCase
   end
 
 
+  def test_sort_merge_bs_empty()
+    puts 'in test_sort_merge_bs_empty()'
+    unsorted_numbers = []
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_merge_bs
+    assert_equal(expected_result, actual_result, 'should return empty array')
+  end
+
+
+  def test_sort_merge_bs_two()
+    puts 'in test_sort_merge_bs_two()'
+    unsorted_numbers = [23, 4]
+    # use Array standard sort method as a benchmark
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_merge_bs
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
+  end
+
+
+  def test_sort_merge_bs_three()
+    puts 'in test_sort_merge_bs_three()'
+    unsorted_numbers = [23, 4, 6]
+    # use Array standard sort method as a benchmark
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_merge_bs
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
+  end
+
+
+  def test_sort_merge_bs_four()
+    puts 'in test_sort_merge_bs_four()'
+    unsorted_numbers = [23, 4, 3, 0]
+    # use Array standard sort method as a benchmark
+    expected_result = unsorted_numbers.sort
+    actual_result = unsorted_numbers.sort_merge_bs
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
+  end
+
+
   def test_sort_recursive()
     puts 'in test_sort_recursive()'
     unsorted_numbers = [23, 4, 3, 0, 19, 7]
@@ -178,7 +222,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result, 'should return empty array')
   end
 
-  
+
   def test_sort_recursive_length_one()
     puts 'in test_sort_recursive_length_one()'
     unsorted_numbers = [-6]
@@ -218,7 +262,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     actual_result = unsorted_numbers.split_left_right_bs()
     assert_equal(expected_result, actual_result)    
   end
-  
+
 
   def test_split_left_right_bs_length_one
     puts 'in test_split_left_right_bs_length_one()'
