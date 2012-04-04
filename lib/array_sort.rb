@@ -14,11 +14,13 @@ class Array
   end
 
 
+  # returns the smallest positive integer exponent n such that self.length <= (2 ** n)
   def log_two_length()
     log_length = 0
-    if  self.length > 0
+    if self.length > 1
       #log2 returns float
-      log_length = Math.log2(self.length).to_i
+      # .ceil rounds up (ceiling)
+      log_length = Math.log2(self.length).ceil
     end
     log_length
   end
@@ -94,14 +96,14 @@ class Array
 
       array_of_sorted_arrays = []
 
-      maximum_exponent = self.log_two_length
-      (1 ... (maximum_exponent + 2)).each do |length_exponent|
-        
+      max_number_of_merges = (self.log_two_length + 1)
+      (1 ... max_number_of_merges).each do |length_exponent|
+
         puts "length_exponent = #{length_exponent}"
 
-        # take arrays of length 2**length_exponent two at a time 
-        # from unsorted_array_of_sorted_arrays
-        # compare and merge them to get an array of sorted arrays of length 2n
+        # Take two subarrays at a time.
+        # Each subarray has length up to 2**length_exponent.
+        # merge them to get an array of sorted arrays of length 2n
         unsorted_array_of_sorted_arrays.each_slice(2) do |subarray| 
           # if subarray has length 1, subarray[1] returns nil
           merged_array = (Array.merge_bs(subarray[0], subarray[1]))
@@ -110,11 +112,10 @@ class Array
           pp "array_of_sorted_arrays #{array_of_sorted_arrays}"
         end
 
-        # need to change an array here
         unsorted_array_of_sorted_arrays = array_of_sorted_arrays
         array_of_sorted_arrays = []
       end # end range loop
-        
+
       sorted = unsorted_array_of_sorted_arrays.first
     end
     sorted

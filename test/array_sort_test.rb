@@ -62,6 +62,13 @@ class ArraySortTest < MiniTest::Unit::TestCase
     expected_result = 1
     assert_equal(expected_result, actual_result, "log_two_length should be #{expected_result}")
 
+    an_array = [100, -42, 63]
+    actual_result = an_array.log_two_length
+    expected_result = Fixnum
+    assert_equal(expected_result, actual_result.class, "log_two_length class")
+    expected_result = 2
+    assert_equal(expected_result, actual_result, "log_two_length should be #{expected_result}")
+
     an_array = [1, 2, 3, 4, 5, 6, 7, 8]
     actual_result = an_array.log_two_length
     expected_result = Fixnum
@@ -73,7 +80,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     actual_result = an_array.log_two_length
     expected_result = Fixnum
     assert_equal(expected_result, actual_result.class, "log_two_length class")
-    expected_result = 3
+    expected_result = 4
     assert_equal(expected_result, actual_result, "log_two_length should be #{expected_result}")
   end
 
