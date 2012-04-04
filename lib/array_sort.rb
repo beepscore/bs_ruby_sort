@@ -13,6 +13,7 @@ class Array
     array_of_arrays
   end
 
+
   def log_two_length()
     log_length = 0
     if  self.length > 0
@@ -21,6 +22,7 @@ class Array
     end
     log_length
   end
+
 
   # each argument is an array sorted in ascending order
   # returns an array sorted in ascending order
@@ -80,44 +82,42 @@ class Array
   # Extend class Array by adding some sort methods
   # Could use standard Array.sort() instead,
   # but do this as a learning exercise.
-  
+
   # sort_merge_bs is non-recursive
-  # TODO: generalize this method to iterate until done
   def sort_merge_bs()
 
-    array_of_unsorted_arrays = self.array_of_arrays_of_length(1)
+    if self.length < 2
+      sorted = self
+    else
+      unsorted_array_of_sorted_arrays = self.array_of_arrays_of_length(1)
+      pp "unsorted_array_of_sorted_arrays #{unsorted_array_of_sorted_arrays}"
 
-    array_of_arrays_of_length_two = []
-    # take arrays of length 1 two at a time from array of unsorted arrays
-    # compare and merge them to get an array of sorted arrays of length 2
-    array_of_unsorted_arrays.each_slice(2) do |subarray| 
-      # if subarray has length 1, subarray[1] returns nil
-      array_of_arrays_of_length_two.push(Array.merge_bs(subarray[0], subarray[1]))
-    end
-    # now have n/2 sorted pairs
-    pp array_of_arrays_of_length_two
+      array_of_sorted_arrays = []
 
-    array_of_arrays_of_length_four = []
-    # take arrays of length 2 two at a time from array of unsorted arrays
-    # compare and merge them to get an array of sorted arrays of length 4
-    array_of_arrays_of_length_two.each_slice(2) do |subarray| 
-      array_of_arrays_of_length_four.push(Array.merge_bs(subarray[0], subarray[1]))
-    end
-    # now have n/4 sorted arrays
-    pp array_of_arrays_of_length_four
-    # 
-    array_of_arrays_of_length_eight = []
-    # take arrays of length 4 two at a time from array of unsorted arrays
-    # compare and merge them to get an array of sorted arrays of length 8
-    array_of_arrays_of_length_four.each_slice(2) do |subarray| 
-      array_of_arrays_of_length_eight.push(Array.merge_bs(subarray[0], subarray[1]))
-    end
-    # now have n/8 sorted arrays
-    pp array_of_arrays_of_length_eight
+      maximum_exponent = self.log_two_length
+      (1 ... (maximum_exponent + 2)).each do |length_exponent|
+        
+        puts "length_exponent = #{length_exponent}"
 
-    # continue until have 1 sorted array
-    
-    array_of_arrays_of_length_eight.first
+        # take arrays of length 2**length_exponent two at a time 
+        # from unsorted_array_of_sorted_arrays
+        # compare and merge them to get an array of sorted arrays of length 2n
+        unsorted_array_of_sorted_arrays.each_slice(2) do |subarray| 
+          # if subarray has length 1, subarray[1] returns nil
+          merged_array = (Array.merge_bs(subarray[0], subarray[1]))
+          pp "merged array #{merged_array}"
+          array_of_sorted_arrays.push(merged_array)
+          pp "array_of_sorted_arrays #{array_of_sorted_arrays}"
+        end
+
+        # need to change an array here
+        unsorted_array_of_sorted_arrays = array_of_sorted_arrays
+        array_of_sorted_arrays = []
+      end # end range loop
+        
+      sorted = unsorted_array_of_sorted_arrays.first
+    end
+    sorted
   end
 
 
