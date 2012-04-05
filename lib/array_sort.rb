@@ -91,10 +91,10 @@ class Array
     if self.length < 2
       sorted = self
     else
-      unsorted_array_of_sorted_arrays = self.array_of_arrays_of_length(1)
-      pp "unsorted_array_of_sorted_arrays #{unsorted_array_of_sorted_arrays}"
+      collected_arrays = self.array_of_arrays_of_length(1)
+      pp "collected_arrays #{collected_arrays}"
 
-      array_of_sorted_arrays = []
+      merged_arrays = []
 
       max_number_of_merges = (self.log_two_length + 1)
       (1 ... max_number_of_merges).each do |length_exponent|
@@ -104,19 +104,19 @@ class Array
         # Take two subarrays at a time.
         # Each subarray has length up to 2**length_exponent.
         # merge them to get an array of sorted arrays of length 2n
-        unsorted_array_of_sorted_arrays.each_slice(2) do |subarray| 
+        collected_arrays.each_slice(2) do |subarray| 
           # if subarray has length 1, subarray[1] returns nil
           merged_array = (Array.merge_bs(subarray[0], subarray[1]))
           pp "merged array #{merged_array}"
-          array_of_sorted_arrays.push(merged_array)
-          pp "array_of_sorted_arrays #{array_of_sorted_arrays}"
+          merged_arrays.push(merged_array)
+          pp "merged_arrays #{merged_arrays}"
         end
 
-        unsorted_array_of_sorted_arrays = array_of_sorted_arrays
-        array_of_sorted_arrays = []
+        collected_arrays = merged_arrays
+        merged_arrays = []
       end # end range loop
 
-      sorted = unsorted_array_of_sorted_arrays.first
+      sorted = collected_arrays.first
     end
     sorted
   end
