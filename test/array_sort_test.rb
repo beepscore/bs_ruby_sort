@@ -258,7 +258,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     unsorted_numbers = [6, 5, 4]
     expected_result = {:left_side => [6], :right_side => [5, 4]}
     actual_result = unsorted_numbers.split_left_right_bs()
-    assert_equal(expected_result, actual_result)    
+    assert_equal(expected_result, actual_result)
   end
 
 
@@ -267,7 +267,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     unsorted_numbers = []
     expected_result = {:left_side => [], :right_side => []}
     actual_result = unsorted_numbers.split_left_right_bs()
-    assert_equal(expected_result, actual_result)    
+    assert_equal(expected_result, actual_result)
   end
 
 
@@ -276,7 +276,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     unsorted_numbers = [-3]
     expected_result = {:left_side => [], :right_side => [-3]}
     actual_result = unsorted_numbers.split_left_right_bs()
-    assert_equal(expected_result, actual_result)    
+    assert_equal(expected_result, actual_result)
   end
 
 
@@ -285,7 +285,7 @@ class ArraySortTest < MiniTest::Unit::TestCase
     unsorted_numbers = [28, 14]
     expected_result = {:left_side => [28], :right_side => [14]}
     actual_result = unsorted_numbers.split_left_right_bs()
-    assert_equal(expected_result, actual_result)    
+    assert_equal(expected_result, actual_result)
   end
 
 end
