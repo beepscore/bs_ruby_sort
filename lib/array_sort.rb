@@ -7,7 +7,7 @@ class Array
   def array_of_arrays_of_length(subarray_length)
     # http://stackoverflow.com/questions/4689186/how-do-you-select-every-nth-item-in-an-array
     array_of_arrays = []
-    self.each_slice(subarray_length) do |subarray| 
+    self.each_slice(subarray_length) do |subarray|
       array_of_arrays.push(subarray)
     end
     array_of_arrays
@@ -52,7 +52,7 @@ class Array
       while ((a_index < a.length) || (b_index < b.length)) do
         # we still have elements to merge
 
-        if ((a_index < a.length) && (b_index < b.length)) 
+        if ((a_index < a.length) && (b_index < b.length))
           # we still have elements in each array to merge
           if (b[b_index] < a[a_index])
             # b's current element is smaller than a's
@@ -134,15 +134,15 @@ class Array
 
       if (1 >= left_side.length)
         sorted_left = left_side
-      else 
+      else
         sorted_left = left_side.sort_recursive
-      end 
+      end
 
       if (1 >= right_side.length)
         sorted_right = right_side
-      else 
+      else
         sorted_right = right_side.sort_recursive
-      end 
+      end
 
       #Combine: Merge the two sorted subsequences to produce the sorted answer.
       sorted = Array.merge_bs(sorted_left, sorted_right)
@@ -164,7 +164,7 @@ class Array
       right_side = self[self.length()/2 .. self.length()]
     end
 
-    {:left_side => left_side, :right_side => right_side} 
+    {:left_side => left_side, :right_side => right_side}
   end
 
 end
