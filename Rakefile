@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require 'rubygems'
+require 'bundler/setup'
+
 require 'rake'
 require 'rake/testtask'
 require_relative 'test/array_sort_test'
