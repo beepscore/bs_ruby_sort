@@ -20,3 +20,6 @@ doc/
 
 # RubyMine
 .idea
+
+# In this project, vendor contains third party files such bundler installed local gems
+vendor/
