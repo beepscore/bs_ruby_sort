@@ -55,8 +55,8 @@ class BsArraySorterTest < MiniTest::Test
     assert_equal([6, -18], BsRubySort::BsArraySorter.left_side([6, -18, 4, 0]))
   end
 
-  def test_array_of_arrays_of_length()
-    puts 'in test_array_of_arrays_of_length()'
+  def test_array_of_arrays_of_length
+    puts 'in test_array_of_arrays_of_length'
     an_array = []
     actual_result = BsRubySort::BsArraySorter.array_of_arrays_of_length(an_array, 2)
     expected_result = []
@@ -88,8 +88,8 @@ class BsArraySorterTest < MiniTest::Test
     assert_equal(expected_result, actual_result, 'incorrect array of arrays of length 4')
   end
 
-  def test_log_two_length()
-    puts 'in test_log_two_length()'
+  def test_log_two_length
+    puts 'in test_log_two_length'
     an_array = []
     actual_result = BsRubySort::BsArraySorter.log_two_length(an_array)
     expected_result = Fixnum
@@ -185,8 +185,8 @@ class BsArraySorterTest < MiniTest::Test
   end
 
   # test Array standard push method
-  def test_push()
-    puts 'in test_push()'
+  def test_push
+    puts 'in test_push'
     an_array = []
     expected_result = [2]
     actual_result = an_array.push(2)
@@ -199,16 +199,16 @@ class BsArraySorterTest < MiniTest::Test
   end
 
   # test Array standard sort method
-  def test_sort()
-    puts 'in test_sort()'
+  def test_sort
+    puts 'in test_sort'
     unsorted_numbers = [4, 3, 1, 2]
     expected_result = [1, 2, 3, 4]
     actual_result = unsorted_numbers.sort
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_bs_sort_merge()
-    puts 'in test_bs_sort_merge()'
+  def test_bs_sort_merge
+    puts 'in test_bs_sort_merge'
     unsorted_numbers = [23, 4, 3, 0, 19, 7]
     # use Array standard sort method as a benchmark
     expected_result = unsorted_numbers.sort
@@ -216,16 +216,16 @@ class BsArraySorterTest < MiniTest::Test
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_bs_sort_merge_empty()
-    puts 'in test_bs_sort_merge_empty()'
+  def test_bs_sort_merge_empty
+    puts 'in test_bs_sort_merge_empty'
     unsorted_numbers = []
     expected_result = unsorted_numbers.sort
     actual_result = BsRubySort::BsArraySorter.bs_sort_merge(unsorted_numbers)
     assert_equal(expected_result, actual_result, 'should return empty array')
   end
 
-  def test_bs_sort_merge_two()
-    puts 'in test_bs_sort_merge_two()'
+  def test_bs_sort_merge_two
+    puts 'in test_bs_sort_merge_two'
     unsorted_numbers = [23, 4]
     # use Array standard sort method as a benchmark
     expected_result = unsorted_numbers.sort
@@ -233,8 +233,8 @@ class BsArraySorterTest < MiniTest::Test
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_bs_sort_merge_three()
-    puts 'in test_bs_sort_merge_three()'
+  def test_bs_sort_merge_three
+    puts 'in test_bs_sort_merge_three'
     unsorted_numbers = [23, 4, 6]
     # use Array standard sort method as a benchmark
     expected_result = unsorted_numbers.sort
@@ -242,8 +242,8 @@ class BsArraySorterTest < MiniTest::Test
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_bs_sort_merge_four()
-    puts 'in test_bs_sort_merge_four()'
+  def test_bs_sort_merge_four
+    puts 'in test_bs_sort_merge_four'
     unsorted_numbers = [23, 4, 3, 0]
     # use Array standard sort method as a benchmark
     expected_result = unsorted_numbers.sort
@@ -251,8 +251,8 @@ class BsArraySorterTest < MiniTest::Test
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_sort_recursive()
-    puts 'in test_sort_recursive()'
+  def test_sort_recursive
+    puts 'in test_sort_recursive'
     unsorted_numbers = [23, 4, 3, 0, 19, 7]
     # use Array standard sort method as a benchmark
     expected_result = unsorted_numbers.sort
@@ -260,24 +260,24 @@ class BsArraySorterTest < MiniTest::Test
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_sort_recursive_empty()
-    puts 'in test_sort_recursive_empty()'
+  def test_sort_recursive_empty
+    puts 'in test_sort_recursive_empty'
     unsorted_numbers = []
     expected_result = unsorted_numbers.sort
     actual_result = BsRubySort::BsArraySorter.sort_recursive(unsorted_numbers)
     assert_equal(expected_result, actual_result, 'should return empty array')
   end
 
-  def test_sort_recursive_length_one()
-    puts 'in test_sort_recursive_length_one()'
+  def test_sort_recursive_length_one
+    puts 'in test_sort_recursive_length_one'
     unsorted_numbers = [-6]
     expected_result = unsorted_numbers.sort
     actual_result = BsRubySort::BsArraySorter.sort_recursive(unsorted_numbers)
     assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
-  def test_sort_recursive_length_two()
-    puts 'in test_sort_recursive_length_two()'
+  def test_sort_recursive_length_two
+    puts 'in test_sort_recursive_length_two'
     unsorted_numbers = [1, 3]
     expected_result = unsorted_numbers.sort
     actual_result = BsRubySort::BsArraySorter.sort_recursive(unsorted_numbers)
