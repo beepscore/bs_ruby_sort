@@ -257,7 +257,7 @@ class BsArraySorterTest < MiniTest::Test
     # use Array standard sort method as a benchmark
     expected_result = unsorted_numbers.sort
     actual_result = BsRubySort::BsArraySorter.sort_recursive(unsorted_numbers)
-    #assert_equal(expected_result, actual_result, 'sorted array incorrect')
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
   def test_sort_recursive_empty()
@@ -280,13 +280,13 @@ class BsArraySorterTest < MiniTest::Test
     puts 'in test_sort_recursive_length_two()'
     unsorted_numbers = [1, 3]
     expected_result = unsorted_numbers.sort
-    #actual_result = BsRubySort::BsArraySorter.sort_recursive(unsorted_numbers)
-    #assert_equal(expected_result, actual_result, 'sorted array incorrect')
+    actual_result = BsRubySort::BsArraySorter.sort_recursive(unsorted_numbers)
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
 
     unsorted_numbers = [9, 3]
     expected_result = unsorted_numbers.sort
-    #actual_result = BsRubySort::BsArraySorter.sort_recursive(unsorted_numbers)
-    #assert_equal(expected_result, actual_result, 'sorted array incorrect')
+    actual_result = BsRubySort::BsArraySorter.sort_recursive(unsorted_numbers)
+    assert_equal(expected_result, actual_result, 'sorted array incorrect')
   end
 
 end
