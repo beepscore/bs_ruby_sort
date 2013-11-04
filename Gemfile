@@ -1,9 +1,12 @@
+source 'https://rubygems.org'
+
 # Reference
 # http://bundler.io/v1.3/gemfile.html
-source "https://rubygems.org"
 
-# http://bundler.io/v1.3/gemfile_ruby.html
+# Need this for $ bundle platform command to show ruby version
+# $ bundle platform doesn't see the similar entry in bs_team_ranker.gemspec
 ruby '2.0.0'
 
-gem 'rake', '>=10.1.0'
-gem 'test-unit', '>=2.0.0.0'
+# use bs_ruby_sort.gemspec to determine gem dependencies
+gemspec
+
