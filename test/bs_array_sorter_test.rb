@@ -133,54 +133,54 @@ class BsArraySorterTest < MiniTest::Test
     assert_equal(expected_result, actual_result, "log_two_length should be #{expected_result}")
   end
 
-  def test_merge_bs()
-    puts 'in test_merge_bs()'
+  def test_bs_merge
+    puts 'in test_bs_merge'
     first_sorted_collection = nil
     second_sorted_collection = nil
     expected_result = []
-    actual_result = BsRubySort::BsArraySorter.merge_bs(first_sorted_collection, second_sorted_collection)
+    actual_result = BsRubySort::BsArraySorter.bs_merge(first_sorted_collection, second_sorted_collection)
     assert_equal(expected_result, actual_result, 'merge should handle both collections nil')
 
     first_sorted_collection = nil
     second_sorted_collection = []
     expected_result = []
-    actual_result = BsRubySort::BsArraySorter.merge_bs(first_sorted_collection, second_sorted_collection)
+    actual_result = BsRubySort::BsArraySorter.bs_merge(first_sorted_collection, second_sorted_collection)
     assert_equal(expected_result, actual_result, 'merge should handle first collection nil second empty')
 
     first_sorted_collection = []
     second_sorted_collection = nil
     expected_result = []
-    actual_result = BsRubySort::BsArraySorter.merge_bs(first_sorted_collection, second_sorted_collection)
+    actual_result = BsRubySort::BsArraySorter.bs_merge(first_sorted_collection, second_sorted_collection)
     assert_equal(expected_result, actual_result, 'merge should handle first empty second nil')
 
     first_sorted_collection = []
     second_sorted_collection = []
     expected_result = []
-    actual_result = BsRubySort::BsArraySorter.merge_bs(first_sorted_collection, second_sorted_collection)
+    actual_result = BsRubySort::BsArraySorter.bs_merge(first_sorted_collection, second_sorted_collection)
     assert_equal(expected_result, actual_result, 'merge should handle both collections empty')
 
     first_sorted_collection = []
     second_sorted_collection = [-5, 2, 7]
     expected_result = [-5, 2, 7]
-    actual_result = BsRubySort::BsArraySorter.merge_bs(first_sorted_collection, second_sorted_collection)
+    actual_result = BsRubySort::BsArraySorter.bs_merge(first_sorted_collection, second_sorted_collection)
     assert_equal(expected_result, actual_result, 'merge should handle first collection empty')
 
     first_sorted_collection = [2, 7, 19, 40, 63]
     second_sorted_collection = []
     expected_result = [2, 7, 19, 40, 63]
-    actual_result = BsRubySort::BsArraySorter.merge_bs(first_sorted_collection, second_sorted_collection)
+    actual_result = BsRubySort::BsArraySorter.bs_merge(first_sorted_collection, second_sorted_collection)
     assert_equal(expected_result, actual_result, 'merge should handle second collection empty')
 
     first_sorted_collection = [9]
     second_sorted_collection = [3]
     expected_result = [3, 9]
-    actual_result = BsRubySort::BsArraySorter.merge_bs(first_sorted_collection, second_sorted_collection)
+    actual_result = BsRubySort::BsArraySorter.bs_merge(first_sorted_collection, second_sorted_collection)
     assert_equal(expected_result, actual_result)
 
     first_sorted_collection = [2, 7, 19, 40, 63]
     second_sorted_collection = [4, 5, 13, 38, 57, 90]
     expected_result = [2, 4, 5, 7, 13, 19, 38, 40, 57, 63, 90]
-    actual_result = BsRubySort::BsArraySorter.merge_bs(first_sorted_collection, second_sorted_collection)
+    actual_result = BsRubySort::BsArraySorter.bs_merge(first_sorted_collection, second_sorted_collection)
     assert_equal(expected_result, actual_result)
   end
 

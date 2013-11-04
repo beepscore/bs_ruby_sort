@@ -29,7 +29,7 @@ module BsRubySort
     # each argument is an array sorted in ascending order
     # returns an array sorted in ascending order
     # if a and b are nil returns empty array, else if one argument is nil it returns the other
-    def self.merge_bs(a, b)
+    def self.bs_merge(a, b)
 
       if (!a && !b)
         merged_array = []
@@ -45,7 +45,7 @@ module BsRubySort
           a, b = b, a
         end
 
-        # merge_bs operates on sorted arrays. Their first elements are always lowest.
+        # bs_merge operates on sorted arrays. Their first elements are always lowest.
         # prepend the smaller of the next two elements to the beginning of the merged array
         a_index = 0
         b_index = 0
@@ -101,7 +101,7 @@ module BsRubySort
           # merge them to get an array of sorted arrays of length 2n
           collected_arrays.each_slice(2) do |subarray| 
             # if subarray has length 1, subarray[1] returns nil
-            merged_array = (self.merge_bs(subarray[0], subarray[1]))
+            merged_array = (self.bs_merge(subarray[0], subarray[1]))
             pp "merged array #{merged_array}"
             merged_arrays.push(merged_array)
             pp "merged_arrays #{merged_arrays}"
@@ -171,7 +171,7 @@ module BsRubySort
         end
 
         #Combine: Merge the two sorted subsequences to produce the sorted answer.
-        sorted = self.merge_bs(sorted_left, sorted_right)
+        sorted = self.bs_merge(sorted_left, sorted_right)
       end
       sorted
     end
