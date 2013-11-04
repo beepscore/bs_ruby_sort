@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'test/unit'
+require 'minitest/autorun'
 require_relative '../lib/array_sort'
 
-class ArraySortTest < MiniTest::Unit::TestCase
+class ArraySortTest < MiniTest::Test
 
   def test_array_of_arrays_of_length()
     puts 'in test_array_of_arrays_of_length()'
