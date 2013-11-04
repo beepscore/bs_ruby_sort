@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+# TODO: publish as a gem
+# Without a gem, can cd to project directory bs_ruby_sort and run app as
+# $ ruby -I lib bin/bs_ruby_sort
+require 'bs_ruby_sort'
+
