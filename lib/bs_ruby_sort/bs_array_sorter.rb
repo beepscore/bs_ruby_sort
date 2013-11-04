@@ -80,8 +80,8 @@ module BsRubySort
       merged_array
     end
 
-    # sort_merge_bs is non-recursive
-    def self.sort_merge_bs(an_array)
+    # bs_sort_merge is non-recursive
+    def self.bs_sort_merge(an_array)
 
       if an_array.length < 2
         sorted = an_array
