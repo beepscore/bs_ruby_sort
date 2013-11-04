@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'minitest/autorun'
-require_relative '../lib/array_sort'
+require_relative '../lib/bs_ruby_sort/array_sort'
 
 class ArraySortTest < MiniTest::Test
 
