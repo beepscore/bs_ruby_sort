@@ -127,7 +127,7 @@ module BsRubySort
         right_side = an_array
       else
         # inclusive range
-        right_side = an_array[an_array.length()/2 .. an_array.length()]
+        right_side = an_array[an_array.length/2 .. an_array.length]
       end
 
       right_side
@@ -142,7 +142,7 @@ module BsRubySort
         left_side = []
       else
         # exclusive range
-        left_side = an_array[0 ... an_array.length()/2]
+        left_side = an_array[0 ... an_array.length/2]
       end
 
       left_side
